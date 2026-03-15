@@ -5,7 +5,7 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   function fetchNotes() {
-    axios.get("http://localhost:3000/api/notes").then((res) => {
+    axios.get("https://backend-9gog.onrender.com//api/notes").then((res) => {
       setNotes(res.data.notes);
     });
   }
@@ -20,7 +20,7 @@ function App() {
     const { title, description } = e.target.elements
 
     console.log(title.value,description.value)
-    axios.post("http://localhost:3000/api/notes",{
+    axios.post("https://backend-9gog.onrender.com//api/notes",{
       title: title.value,
       description:description.value
     })
@@ -33,7 +33,7 @@ function App() {
 
 
   function handleDeleteNotes(noteId){
-    axios.delete("http://localhost:3000/api/notes/"+noteId)
+    axios.delete("https://backend-9gog.onrender.com//api/notes/"+noteId)
     .then((res)=>{
       console.log(res.data)
       fetchNotes()
